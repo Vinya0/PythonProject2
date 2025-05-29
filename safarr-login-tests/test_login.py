@@ -35,33 +35,19 @@ class TestLogin:
         time.sleep(2)  # wait for page response
 
         if should_pass:
-            try:
-                # Wait for an element visible after login success
-                users_header = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id=root]/div[2]/div/div[2]/div/main/div/div[1]/div/h3")))
-                print(f"Login successful for user: {user}")
-                assert users_header.is_displayed()
-            except Exception as e:
-                print("Expected successful login, but Users header not found.")
-                print(f"Current URL: {driver.current_url}")
-                print(driver.page_source[:500])  # first 500 chars of page source for debugging
-                raise e
+            dashboard = wait.until(EC.visibility_of_element_located((By.XPATH, "//h3[text()='Users']")))
+            print(f"Login successful for user: {user}")
+            assert dashboard.is_displayed()
+        elif user == "" and pwd == "":
+            errors = driver.find_elements(By.XPATH, "//*[@id=root]/div[2]/div/div[2]/div/div[3]/form/div/div[1]/div/div]")
+            print("Validation errors for empty fields:")
+            for e in errors:
+                print("-", e.text)
+            assert len(errors) >= 2
         else:
-            if user == "" and pwd == "":
-                # Look for validation errors on empty inputs
-                errors = driver.find_elements(By.XPATH, "//span[text()='Required']")
-                print(f"Validation errors for empty fields: {[e.text for e in errors]}")
-                assert len(errors) >= 2
-            else:
-                try:
-                    # Look for invalid credentials toast message — adjust XPath if needed
-                    toast = wait.until(EC.visibility_of_element_located(
-                        (By.XPATH, "//div[contains(text(),'Invalid credentials') or contains(text(),'invalid credentials')]")))
-                    print(f"Toast message: {toast.text}")
-                    assert "invalid credentials" in toast.text.lower()
-                except Exception as ex:
-                    print("Expected invalid credentials message not found.")
-                    print(f"Current URL: {driver.current_url}")
-                    print(driver.page_source[:500])  # snippet for debugging
-                    raise ex
+            toast = wait.until(
+                EC.visibility_of_element_located((By.XPATH, "//*[@id=1]/div[1]/div[2]')]")))
+            print("Toast message on invalid login:", toast.text)
+            assert "Invalid credentials Please try again with valid credentials ⚠" in toast.text.lower()
 
         driver.quit()
