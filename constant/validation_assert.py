@@ -1,0 +1,8 @@
+INVALID_EMAIL = "Enter a valid email address."
+EMPTY_EMAIL_ID = "Email is required."
+EMPTY_PASSWORD = "Password is required."
+INCORRECT_CREDENTIALS = "Invalid credentials Please try again with valid credentials ⚠"
+CORRECT_CREDENTIALS = "Logged in successfully."
+LOGOUT = "Logged out successfully."
+INACTIVE = "Community Type has been updated successfully to Inactive."
+ACTIVE = "Community Type has been updated successfully to Active."
