@@ -121,12 +121,14 @@ class TestCommunityType:
         assert Community_Type_text.is_displayed()
 
 
-    def test_add_community_type(self):
-        add_community_type().click()
-        time.sleep(2)  # Optional: wait for redirection
+    # def test_add_community_type(self):
+    #     add_community_type().click()
+    #     time.sleep(2)  # Optional: wait for redirection
 
     # COMMUNITY TYPE NAME
     def test_validate_community_type_name(self):
+        add_community_type().click()
+        time.sleep(2)
         # community_name().send_keys(clear_input)
         save_community_type_name().click()
         time.sleep(1)

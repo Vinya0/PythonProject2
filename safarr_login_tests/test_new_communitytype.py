@@ -114,36 +114,6 @@ def dropdown_hundred():
     return wait.until(EC.element_to_be_clickable(
         (By.XPATH, "//div[@id='react-select-59-option-3']")))
 
-# def add_community_type():
-#     return wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//span[@class='ltr:ml-1 rtl:mr-1']")))
-#
-# def community_type_name():
-#     return wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//input[@placeholder='Enter Community Type Name']")))
-#
-# def generate_random_name(length=8):
-#     return 'Vinya' + ''.join(random.choices(string.ascii_letters, k=length))
-#
-#
-#
-# def type_error():
-#     return wait.until(EC.visibility_of_element_located(
-#         (By.XPATH, "//div[@class='form-explain']")))
-#
-# def image_community_type_name():
-#     return wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//button[@class='button bg-white border border-gray-300 dark:bg-gray-700 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 active:bg-gray-100 dark:active:bg-gray-500 dark:active:border-gray-500 text-gray-600 dark:text-gray-100 radius-round h-11 px-8 py-2 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer flex items-center justify-center max-w-")))
-#
-# def save_community_type_name():
-#     return wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//button[normalize-space()='Save']")))
-#
-# def back_community_type_name():
-#     return wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//button[normalize-space()='Back']")))
-
-
 
 # Test Class
 
@@ -210,37 +180,3 @@ class TestCommunityType:
 
         driver.back()
         time.sleep(3)
-    #
-    # def test_add_community_type(self):
-    #     add_community_type().click()
-    #     time.sleep(2)  # Optional: wait for redirection
-    #
-    # def test_incorrect_community_type_name(self):
-    #     save_community_type_name().click()
-    #     assert type_error().text == validation_assert.INCORRECT_COMMUNITY_TYPE_NAME
-    #
-    # def test_space_community_type_name(self):
-    #     community_type_name().clear()
-    #     community_type_name().send_keys("   ")  # Only spaces
-    #     save_community_type_name().click()
-    #     time.sleep(1)
-    #     assert edit_space_error().text == validation_assert.EMPTY_COMMUNITY_TYPE_NAME
-    #
-    # def test_characters_community_type_name(self):
-    #     save_community_type_name().click()
-    #     assert type_error().text == validation_assert.CHARACTERS_COMMUNITY_TYPE_NAME
-    #
-    # def test_length_community_type_name(self):
-    #     save_community_type_name().click()
-    #     assert edit_length_error().text == validation_assert.MAX_LENGTH
-    #
-    #
-    # # def test_community_type_name(self):
-    # #     random_name = generate_random_name()
-    # #     community_type_name().send_keys(random_name)
-    # #     save_community_type_name().click()
-    # #     time.sleep(2)
-    #
-
-
-
